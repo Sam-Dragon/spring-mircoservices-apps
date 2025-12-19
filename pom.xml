@@ -11,8 +11,16 @@
 	<groupId>com.learning.microservices</groupId>
 	<artifactId>spring-mircoservices-apps</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>spring-mircoservices-apps</name>
 	<description>All the spring boot services for designing the app</description>
+
+	<!-- APPLICATION MODULES	-->
+	<modules>
+		<module>test-service</module>
+		<module>discovery-service</module>
+	</modules>
+
 	<url/>
 	<licenses>
 		<license/>
