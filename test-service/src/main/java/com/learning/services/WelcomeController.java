@@ -19,4 +19,9 @@ public class WelcomeController {
     public String health() {
         return application + " application is up and running on port - " + port;
     }
+
+    @GetMapping("/exit")
+    public String exit() {
+        return "Terminating " + application + " application on port - " + port;
+    }
 }

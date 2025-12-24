@@ -19,7 +19,9 @@
 	<modules>
 		<module>test-service</module>
 		<module>discovery-service</module>
-	</modules>
+        <module>gateway-service</module>
+        <module>user-service</module>
+    </modules>
 
 	<url/>
 	<licenses>
