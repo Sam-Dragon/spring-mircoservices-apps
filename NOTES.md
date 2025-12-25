@@ -92,6 +92,24 @@
 <br>
 
 <details>
+<summary>SPRING DATA</summary>
+
+> Definition
+
+-
+
+> Types
+
+-
+
+> Good Practices
+
+-
+
+</details>
+<br>
+
+<details>
 <summary>DEPENDENCY INJECTION</summary>
 
 > Definition
