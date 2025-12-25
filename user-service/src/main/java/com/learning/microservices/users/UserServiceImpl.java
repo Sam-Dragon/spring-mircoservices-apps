@@ -3,12 +3,16 @@ package com.learning.microservices.users;
 import com.learning.microservices.users.entity.Users;
 import com.learning.microservices.users.mappers.UserRequestMapper;
 import com.learning.microservices.users.mappers.UserResponseMapper;
+import com.learning.microservices.users.model.NotificationResponse;
 import com.learning.microservices.users.model.UserRequest;
 import com.learning.microservices.users.model.UserResponse;
+import com.learning.microservices.users.notifications.NotificationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +23,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository repository;
     private final UserRequestMapper userRequestMapper;
     private final UserResponseMapper userResponseMapper;
+
 
     @Transactional(readOnly = true)
     @Override
@@ -68,5 +73,31 @@ public class UserServiceImpl implements UserService {
                              repository.delete(u);
                              return userResponseMapper.toDto(u);
                          });
+    }
+
+    /* SETTER BASED INJECTION */
+    // Optional dependency
+    private NotificationService notificationService;
+
+    @Autowired(required = false)
+    public void setNotificationService(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
+
+    @Override
+    public NotificationResponse notify(String userId) {
+
+        NotificationResponse response = new NotificationResponse();
+        response.setId(userId);
+        response.setMessage("Failed");
+        response.setExecutionTime(LocalDateTime.now());
+
+        return Optional.ofNullable(notificationService)
+                       .map(e -> {
+                           e.notifyUser();
+                           response.setMessage("Success");
+                           return response;
+                       })
+                       .orElseGet(() -> response);
     }
 }

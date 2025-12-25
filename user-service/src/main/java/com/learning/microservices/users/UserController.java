@@ -1,5 +1,6 @@
 package com.learning.microservices.users;
 
+import com.learning.microservices.users.model.NotificationResponse;
 import com.learning.microservices.users.model.UserRequest;
 import com.learning.microservices.users.model.UserResponse;
 import jakarta.validation.Valid;
@@ -59,5 +60,10 @@ public class UserController {
                           .map(ResponseEntity::ok)
                           .orElseGet(() -> ResponseEntity.notFound()
                                                          .build());
+    }
+
+    @GetMapping(value = "/notify/{user_id}")
+    public ResponseEntity<NotificationResponse> notify(@PathVariable("user_id") String userId) {
+        return ResponseEntity.ok(userService.notify(userId));
     }
 }

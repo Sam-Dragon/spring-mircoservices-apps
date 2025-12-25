@@ -1,11 +1,11 @@
 package com.learning.microservices.users;
 
+import com.learning.microservices.users.model.NotificationResponse;
 import com.learning.microservices.users.model.UserRequest;
 import com.learning.microservices.users.model.UserResponse;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public interface UserService {
 
@@ -18,4 +18,6 @@ public interface UserService {
     Optional<UserResponse> update(String userId, UserRequest userRequest);
 
     Optional<UserResponse> delete(String userId);
+
+    NotificationResponse notify(String userId);
 }
