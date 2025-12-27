@@ -49,6 +49,7 @@
 
 - It is the **central entrypoint** to all our microservices
 - It has in-built load balancer for distributing the traffic
+- It has **PRE & POST filters** to modify the request. i.e. modify header, url rewrite, validate token etc..
 - It performs following activities
     - Request Validation
     - Logging
@@ -96,15 +97,20 @@
 
 > Definition
 
--
+- It is the rich layer build on top of jpa
+- It internally uses **hibernate** as implementation but can be changed
 
-> Types
+> Advantage
 
--
+- It provides rich operations for performing query
+- Manages the connection pool
+- Reduces boiler plate code
+- Extensible to write custom query
+- Transactional support
 
 > Good Practices
 
--
+- Use JPA Repository, to get enhanced batch functions for queries
 
 </details>
 <br>
