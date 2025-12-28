@@ -49,11 +49,14 @@
         <!-- CONFIG SERVER CLIENT-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+
+        <!-- CLOUD BUS -->
+        <!-- MESSAGING BROKER  - RABBIT MQ -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
 
         <!-- TEST -->
