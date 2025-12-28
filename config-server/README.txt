@@ -13,3 +13,9 @@ D:\spring-mircoservices-apps\config-server
 
 # Server 3
 .\mvnw spring-boot:run -D"spring-boot.run.arguments=--server.port=8890"
+
+# Docker
+
+> Rabbit Mq
+docker run -it --rm --name rabbitmq -d -p 5672:5672 -p 15672:15672 rabbitmq:4-management
+

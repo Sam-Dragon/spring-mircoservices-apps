@@ -62,6 +62,33 @@
 <br>
 
 <details>
+<summary>CLOUD CONFIG SERVER</summary>
+
+> Definition
+
+- It is the centralized configuration for loading application configuration
+- Different environment can be setup per application
+
+> Advantage
+
+- Externalise configuration for reading application configuration that too securely
+
+> Good Practice
+
+- Good to register with discovery service
+- Minimum 2 instances are required for high availability and resilience
+
+<summary>CLOUD BUS</summary>
+
+> Definition
+
+- It is used pushing all dynamic properties updates to all apps configured in config server
+- It uses rabbitmq and actuator to refresh the properties dynamically
+
+</details>
+<br>
+
+<details>
 <summary>ACTUATOR</summary>
 
 > Definition
