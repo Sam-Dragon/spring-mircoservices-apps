@@ -68,6 +68,7 @@
 
 - It is the centralized configuration for loading application configuration
 - Different environment can be setup per application
+- **native** file system introduced to load configuration from local and can be combined with git or any other location
 
 > Advantage
 
